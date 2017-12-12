@@ -9,13 +9,6 @@ var body = document.getElementsByTagName("full");
 var targetX = boxWidth / 2;
 var targetY = boxHeight / 2;
 
-var setBackground = function(dist) {
-  var att = document.createAttribute("style");
-  att.value = "red";
-  body.setAttributeNode(att);
-
-}
-
 console.log( "box height: " + boxHeight );
 console.log( "box width: " + boxWidth );
 
@@ -26,14 +19,11 @@ var distance = function (x0, y0, x1, y1) {
   return Math.sqrt(xpow + ypow);
 };
 
-
 var findIt = function(e) {
-  /* YOUR IMPLEMENTATION */
+  var x = event.clientX;
+  var y = event.clientY;
+  var dist = Math.floor(distance(targetX, targetY, x, y));
+  document.body.style.backgroundColor = "rgb(" + dist + "," + dist + "," + dist + ")";
 };
 
-/*
-your OTHER FXNS
-<body style = "red">
-  <style>
-  
-*/
+box.addEventListener("mousemove", findIt);

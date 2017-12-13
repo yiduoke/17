@@ -28,7 +28,10 @@ var findIt = function(event) {
   var y = event.clientY;
   var dist = Math.floor(distance(targetX, targetY, x, y));
   console.log(dist);
-  document.body.style.backgroundColor = "rgb(" + dist + "," + dist + "," + dist + ")";
+  if (dist > 255) {
+    dist = 255;
+  }
+  document.body.style.backgroundColor = "rgb(" + (255 - dist) + "," + (255 - dist) + "," + (255 - dist) + ")";
   if (dist < 25) {
     document.body.style.backgroundColor = "rgb(0,125,0)"
     window.alert("You found it!");

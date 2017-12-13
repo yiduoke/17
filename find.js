@@ -28,6 +28,7 @@ var findIt = function(event) {
   var y = event.clientY;
   var dist = Math.floor(distance(targetX, targetY, x, y));
   console.log(dist);
+  dist = dist / 2;
   if (dist > 255) {
     dist = 255;
   }
